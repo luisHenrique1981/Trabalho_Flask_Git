@@ -17,8 +17,8 @@ def login():
 
 @app_luisHenrique.route("/autenticar", methods=['GET', 'POST'])
 def autenticar():
-    usuario = request.args.get('nome_usuario')
-    senha = request.args.get('senha')
+    usuario = request.form.get('nome_usuario')
+    senha = request.form.get('senha')
     return f"usuario: {usuario} e senha: {senha}"
 
 @app_luisHenrique.route("/usuario", defaults={"nome_usuario": "usuario?", "nome_profissao": ""})
