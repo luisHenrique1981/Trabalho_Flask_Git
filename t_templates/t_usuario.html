@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block conteudo %}
+    <h2>Olá, {{nome}}</h2>
+    <p>
+        <br>
+        <b>Profissao: </b> {{dados['profissao']}} <br/>
+        <b>Disciplina: </b> {{dados['disciplina']}}
+    </p>
+{% endblock %}

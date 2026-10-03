@@ -1,15 +1,20 @@
 from flask import Flask, render_template
 
-app_luisHenrique = Flask(__name__, template_folder="templates")
+app_luisHenrique = Flask(__name__, template_folder="t_templates")
 
 @app_luisHenrique.route("/")
-def homepage():
-    return render_template("homepage.html")
+@app_luisHenrique.route("/index")
+def indice():
+    return render_template("t_index.html")
 
 @app_luisHenrique.route("/contato")
 def contato():
-    return render_template("contato.html")
+    return render_template("t_contato.html")
+
+@app_luisHenrique.route("/usuario", defaults={"nome_usuario": "usuario?", "nome_profissao": ""})
+def usuarios(nome_usuario, nome_profissao):
+    dados_usu = {"profissao": nome_profissao, "disciplina": "Desenvolvimento Web III"}
+    return render_template("t_usuario.html", nome=nome_usuario, dados=dados_usu)
 
 if __name__ == "__main__":
     app_luisHenrique.run(port= 8080, debug=True)
-    
